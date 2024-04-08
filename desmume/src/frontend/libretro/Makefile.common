@@ -78,7 +78,7 @@ SOURCES_CXX += $(CORE_DIR)/OGLRender.cpp
 endif
 
 ifeq ($(DESMUME_OPENGL_CORE),1)
-SOURCES_CXX += $(CORE_DIR)/OGLRender_3_2.cpp 
+SOURCES_CXX += $(CORE_DIR)/OGLRender_3_2.cpp
 endif
 
 ifeq ($(HAVE_LIBFAT),1)
@@ -97,7 +97,7 @@ SOURCES_CXX += \
 endif
 
 # We can only stop excluding this for Vita once we have more
-# filesystem functions implemented 
+# filesystem functions implemented
 SOURCES_CXX += $(CORE_DIR)/addons/slot1_retail_mcrom_debug.cpp \
 					$(CORE_DIR)/utils/fsnitro.cpp
 SOURCES_CXX += $(CORE_DIR)/utils/task.cpp \
@@ -117,12 +117,10 @@ SOURCES_C += $(LIBRETRO_COMM_DIR)/memmap/memalign.c \
 				 $(LIBRETRO_COMM_DIR)/string/stdstring.c \
 				 $(LIBRETRO_COMM_DIR)/encodings/encoding_utf.c
 
-ifneq ($(STATIC_LINKING), 1)
 SOURCES_C += \
 				 $(LIBRETRO_COMM_DIR)/streams/file_stream.c \
 				 $(LIBRETRO_COMM_DIR)/streams/file_stream_transforms.c \
 				 $(LIBRETRO_COMM_DIR)/vfs/vfs_implementation.c
-endif
 
 ifeq ($(DESMUME_JIT_ARM),1)
 SOURCES_CXX += \
@@ -168,4 +166,4 @@ SOURCES_CXX += \
 	$(CORE_DIR)/utils/AsmJit/x86/x86util.cpp
 endif
 
-INCDIR += -I$(CORE_DIR) -I$(CORE_DIR)/libretro 
+INCDIR += -I$(CORE_DIR) -I$(CORE_DIR)/libretro
