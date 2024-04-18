@@ -121,8 +121,8 @@ ifneq (,$(findstring unix,$(platform)))
 # Platform affix = classic_<ISA>_<µARCH>
 # Help at https://modmyclassic.com/comp
 
-# (armv7 a7, hard point, neon based) ###
-# NESC, SNESC, C64 mini
+# (armv7 a7, hard point, neon based) ### 
+# NESC, SNESC, C64 mini 
 else ifeq ($(platform), classic_armv7_a7)
 	TARGET := $(TARGET_NAME)_libretro.so
 	fpic := -fPIC
@@ -378,10 +378,6 @@ else ifeq ($(platform), android)
 else ifeq ($(platform), emscripten)
    TARGET := $(TARGET_NAME)_libretro_$(platform).bc
    STATIC_LINKING = 1
-   CFLAGS += -DHAVE_OPENGL
-   CXXFLAGS += -DHAVE_OPENGL
-   DESMUME_OPENGL = 1
-	DESMUME_OPENGL_CORE = 1
 
 # Windows MSVC 2017 all architectures
 else ifneq (,$(findstring windows_msvc2017,$(platform)))
@@ -468,7 +464,7 @@ else ifneq (,$(findstring windows_msvc2017,$(platform)))
 	ifneq (,$(findstring uwp,$(PlatformSuffix)))
 		LIB := $(shell IFS=$$'\n'; cygpath -w "$(LIB)/store")
 	endif
-
+    
 	export INCLUDE := $(INCLUDE);$(WindowsSDKSharedIncludeDir);$(WindowsSDKUCRTIncludeDir);$(WindowsSDKUMIncludeDir)
 	export LIB := $(LIB);$(WindowsSDKUCRTLibDir);$(WindowsSDKUMLibDir)
 	TARGET := $(TARGET_NAME)_libretro.dll
@@ -645,7 +641,7 @@ CFLAGS   +=
 endif
 
 OBJOUT   = -o
-LINKOUT  = -o
+LINKOUT  = -o 
 
 ifneq (,$(findstring msvc,$(platform)))
 	OBJOUT = -Fo
@@ -669,7 +665,7 @@ ifeq ($(STATIC_LINKING), 1)
 else
 	$(LD) $(LDFLAGS) $(fpic) $(SHARED) $(LINKOUT)$@ $(OBJECTS) $(LIBS)
 endif
-
+    
 %.o: %.c
 	$(CC) $(CFLAGS) -c $(OBJOUT)$@ $<
 
