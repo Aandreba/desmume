@@ -377,6 +377,8 @@ else ifeq ($(platform), android)
 
 else ifeq ($(platform), emscripten)
    TARGET := $(TARGET_NAME)_libretro_$(platform).bc
+   CFLAGS += -pthread
+   CXXFLAGS += -pthread
    STATIC_LINKING = 1
 
 # Windows MSVC 2017 all architectures
